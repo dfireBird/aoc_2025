@@ -3,6 +3,8 @@ package internal
 import (
 	"fmt"
 	"strconv"
+
+	"golang.org/x/exp/constraints"
 )
 
 func Map[T, V any](ts []T, fn func(T) V) []V {
@@ -19,4 +21,15 @@ func ToInt(d string) int {
 		panic(fmt.Sprintf("Unexpected character (%s). Expected digit.", d))
 	}
 	return v
+}
+
+func Mod[T constraints.Integer](x, m T) T {
+	return ((x % m) + m) % m
+}
+
+func Abs[T constraints.Integer](x T) T {
+	if x < 0 {
+		return -x
+	}
+	return x
 }
