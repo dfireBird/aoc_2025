@@ -8,14 +8,23 @@ import (
 
 type TestData internal.TestData[result]
 
-var example = ``
+var example = `L68
+L30
+R48
+L5
+R60
+L55
+L1
+L99
+R14
+L82`
 
 func Test_part1(t *testing.T) {
 	tests := []TestData{
 		{
 			Name:  "example",
 			Input: example,
-			Want:  11,
+			Want:  3,
 		},
 	}
 	for _, tt := range tests {
@@ -27,14 +36,14 @@ func Test_part1(t *testing.T) {
 	}
 }
 
-var example2 = ``
+var example2 = example
 
 func Test_part2(t *testing.T) {
 	tests := []TestData{
 		{
 			Name:  "example",
 			Input: example2,
-			Want:  31,
+			Want:  6,
 		},
 	}
 	for _, tt := range tests {
@@ -45,4 +54,3 @@ func Test_part2(t *testing.T) {
 		})
 	}
 }
-
